@@ -13,8 +13,9 @@ import java.util.Date;
 import java.util.List;
 
 public class MavenStudentTest {
-    Date date = new Date();
+
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = new Date();
     MavenStudent student = new MavenStudent();
     @Test
     public  void getAllTest() throws IOException {
@@ -29,7 +30,7 @@ public class MavenStudentTest {
         List<MavenStudent> getAll = session.selectList("getAll");
         /*查询所有信息*/
         for (MavenStudent student: getAll){
-            System.out.println(student.getDate() );
+            System.out.println(student.getDate());
         }
         /*添加信息*/
         student.setName("222222");
