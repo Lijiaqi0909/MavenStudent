@@ -35,7 +35,7 @@ public class MavenStudentTest {
         student.setName("222222");
         student.setAge(24);
         /*获取当前时间*/
-        String format = dateFormat.format(date);
+       String format = dateFormat.format(date);
         System.out.println(format);
         student.setDate(Timestamp.valueOf(format));
         session.insert("insterStudent",student);
