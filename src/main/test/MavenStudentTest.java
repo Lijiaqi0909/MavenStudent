@@ -1,3 +1,4 @@
+import com.dao.MavenStudentDao;
 import com.student.MavenStudent;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -40,7 +41,9 @@ public class MavenStudentTest {
        String format = dateFormat.format(date);
         System.out.println(format);
         student.setDate(Timestamp.valueOf(format));
-        session.insert("insterStudent",student);
+       /* session.insert("insterStudent",student);*/
+        MavenStudentDao mapper = session.getMapper(MavenStudentDao.class);
+        mapper.insterStudent(student);
         session.commit();
         /*关闭session会话*/
         session.close();
@@ -99,6 +102,7 @@ public class MavenStudentTest {
     //循环练习
     @Test
     public void Test5(){
+
         int score=new Scanner(System.in).nextInt();
         int count = 0;
         System.out.println("加分钱的成绩为"+score);
@@ -109,6 +113,8 @@ public class MavenStudentTest {
         System.out.println("加分后的成绩为"+score);
         System.out.println("加分的次数为"+count);
     }
+
+
 
 
 }
